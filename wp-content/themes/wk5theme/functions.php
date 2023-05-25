@@ -66,3 +66,19 @@ function foods_post_type(){
 }
 
 add_action('init', 'foods_post_type');
+
+
+
+//Adding shortcodes
+
+add_shortcode('kores', function($atts){
+    // echo 'this is a custom shortcode I created';
+
+    //lemmi use an attribute now
+    $attributes = shortcode_atts([
+        'members' => 'joel', 'hope', 'joy', 'kimani',
+        'no_of_trainees' => 4
+    ], $atts, 'kores');
+
+    return "Members are ".$attributes['members']. 'No of trainees = '.$attributes['no_of_trainees'];
+});
